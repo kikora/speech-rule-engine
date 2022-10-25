@@ -24,7 +24,7 @@
 
 import { createLocale, Locale } from '../locale';
 import { nestingToString } from '../locale_util';
-import NUMBERS from '../numbers/numbers_nn';
+import NUMBERS from '../numbers/numbers_nb';
 import * as tr from '../transformers';
 
 let locale: Locale = null;

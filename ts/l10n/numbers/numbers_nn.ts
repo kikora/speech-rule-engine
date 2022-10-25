@@ -140,7 +140,43 @@ function replaceOrdinal(str: string): string {
  * @returns The ordinal string.
  */
 function wordOrdinal(num: number): string {
-  const ordinal = numberToWords(num, true);
+  let ordinal = numberToWords(num, true);
+
+  if (ordinal.match(/^null$/)) {
+    ordinal = 'nullte';
+  } else if (ordinal.match(/ein$/)) {
+    ordinal = ordinal.replace(/ein$/, 'første');
+  } else if (ordinal.match(/to$/)) {
+    ordinal = ordinal.replace(/to$/, 'andre');
+  } else if (ordinal.match(/tre$/)) {
+    ordinal = ordinal.replace(/tre$/, 'tredja');
+  } else if (ordinal.match(/fire$/)) {
+    ordinal = ordinal.replace(/fire$/, 'fjerde');
+  } else if (ordinal.match(/fem$/)) {
+    ordinal = ordinal.replace(/fem$/, 'femte');
+  } else if (ordinal.match(/seks$/)) {
+    ordinal = ordinal.replace(/seks$/, 'sjette');
+  } else if (ordinal.match(/sju$/)) {
+    ordinal = ordinal.replace(/sju$/, 'sjuande');
+  } else if (ordinal.match(/åtte$/)) {
+    ordinal = ordinal.replace(/åtte$/, 'åttande');
+  } else if (ordinal.match(/ni$/)) {
+    ordinal = ordinal.replace(/ni$/, 'niande');
+  } else if (ordinal.match(/ti$/)) {
+    ordinal = ordinal.replace(/ti$/, 'tiande');
+  } else if (ordinal.match(/elleve$/)) {
+    ordinal = ordinal.replace(/elleve$/, 'ellevte');
+  } else if (ordinal.match(/tolv$/)) {
+    ordinal = ordinal.replace(/tolv$/, 'tolvte');
+  } else if (ordinal.match(/en$/)) {
+    ordinal = ordinal.replace(/en$/, 'ande')
+  } else if (ordinal.match(/hundre$/)) {
+    ordinal = ordinal.replace(/e$/, 'ande')
+  } else if (ordinal.match(/iard$/) || ordinal.match(/ion$/)) {
+    ordinal = ordinal + 'te';
+  } else {
+    ordinal = ordinal + 'de';
+  }
   return ordinal;
 }
 
