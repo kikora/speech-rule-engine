@@ -130,7 +130,7 @@ function replaceOrdinal(str: string): string {
   }
   if (str.match(/(d|n)$/) || str.match(/hundre$/)) {
     // I need to check if this is the one causing me problems
-    return str + 'dEEEE';
+    return str + 'de';
   }
   if (str.match(/i$/)) {
     return str + NUMBERS.special.endOrdinal;
