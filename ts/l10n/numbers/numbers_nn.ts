@@ -100,11 +100,17 @@ function numberToWordsRo(num: number, ordinal = false): string {
  * its ordinal.
  *
  * @param num The number to translate.
- * @param _plural A flag indicating if the ordinal is in plural.
+ * @param plural A flag indicating if the ordinal is in plural.
  * @returns The ordinal of the number as string.
  */
-function numberToOrdinal(num: number, _plural: boolean): string {
-  return wordOrdinal(num);
+function numberToOrdinal(num: number, plural: boolean): string {
+  if (num === 1) {
+    return plural ? 'heile' : 'heil';
+  }
+  if (num === 2) {
+    return plural ? 'halve' : 'halv';
+  }
+  return wordOrdinal(num) + (plural ? 'delar' : 'del');
 }
 
 /**
@@ -190,13 +196,6 @@ function numericOrdinal(num: number): string {
   return num.toString() + '.';
 }
 
-const NUMBERS: Numbers = NUMB();
-NUMBERS.wordOrdinal = wordOrdinal;
-NUMBERS.numericOrdinal = numericOrdinal;
-NUMBERS.numberToWords = numberToWords;
-NUMBERS.numberToOrdinal = numberToOrdinal;
-
-export default NUMBERS;
 // TODO: For simple speech output this should be different.
 
 // Alternative Germanic style numbers:
@@ -298,3 +297,11 @@ function numberToWords(num: number, ordinal = false): string {
       : numberToWordsRo(num, ordinal);
   return word;
 }
+
+const NUMBERS: Numbers = NUMB();
+NUMBERS.wordOrdinal = wordOrdinal;
+NUMBERS.numericOrdinal = numericOrdinal;
+NUMBERS.numberToWords = numberToWords;
+NUMBERS.numberToOrdinal = numberToOrdinal;
+
+export default NUMBERS;
