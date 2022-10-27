@@ -104,6 +104,9 @@ function numberToWordsRo(num: number, ordinal = false): string {
  * @returns The ordinal of the number as string.
  */
 function numberToOrdinal(num: number, plural: boolean): string {
+  // numbers are coming in via 'numberToWordsRo' and 'Ge', which
+  // adds
+
   if (num === 1) {
     return plural ? 'heile' : 'heil';
   }
@@ -122,10 +125,12 @@ function numberToOrdinal(num: number, plural: boolean): string {
 function replaceOrdinal(str: string): string {
   const letOne = NUMBERS.special.endOrdinal[0];
   if (letOne === 'a' && str.match(/en$/)) {
+    // this replaces 'tusen' with 'tusande'
     return str.slice(0, -2) + NUMBERS.special.endOrdinal;
   }
   if (str.match(/(d|n)$/) || str.match(/hundre$/)) {
-    return str + 'de';
+    // I need to check if this is the one causing me problems
+    return str + 'dEEEE';
   }
   if (str.match(/i$/)) {
     return str + NUMBERS.special.endOrdinal;
