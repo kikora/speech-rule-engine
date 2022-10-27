@@ -69,7 +69,8 @@ function numberToWords(num: number, ordinal = false): string {
       // Case 3: space and translate
       const large = NUMBERS.large[pos];
       // junk to see if it's this that runs
-      const plural = hundreds > 1 && pos > 1 && !ordinal ? 'er' : 'AR';
+      // I don't think this ought to preempt if it isn't ordinal
+      const plural = hundreds > 1 && pos > 1 ? 'er' : '';
       str =
         (pos === 1 && hundreds === 1
           ? ''
