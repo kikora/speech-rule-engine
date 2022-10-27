@@ -99,7 +99,7 @@ function numberToOrdinal(num: number, plural: boolean): string {
     return plural ? 'halva' : 'halv';
   }
   let ordinal = wordOrdinal(num);
-  ordinal = ordinal.match(/de$/) ? ordinal.replace(/de$/, '') : ordinal;
+  ordinal = ordinal.replace(/de$/, '');
   return ordinal + (plural ? 'delar' : 'del');
 }
 
