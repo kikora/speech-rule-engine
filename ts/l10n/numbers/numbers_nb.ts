@@ -70,6 +70,7 @@ function numberToWords(num: number, ordinal = false): string {
       const large = NUMBERS.large[pos];
       // junk to see if it's this that runs
       // I don't think this ought to preempt if it isn't ordinal
+      ordinal;  // to avoid getting a typescript compiler
       const plural = hundreds > 1 && pos > 1 ? 'er' : '';
       str =
         (pos === 1 && hundreds === 1
