@@ -156,6 +156,8 @@ function wordOrdinal(num: number): string {
     ordinal = ordinal.replace(/tusen$/, 'tusende');
   } else if (ordinal.match(/iard$/) || ordinal.match(/ion$/)) {
     ordinal = ordinal + 'te';
+  } else if (ordinal.match(/iarder$/) || ordinal.match(/ioner$/)) {
+    ordinal = ordinal + 'te';
   } else {
     ordinal = ordinal + 'de';
   }
