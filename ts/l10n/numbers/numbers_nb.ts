@@ -68,7 +68,8 @@ function numberToWords(num: number, ordinal = false): string {
       // Case 2: hundreds === 1 and pos > 1, space, no translate
       // Case 3: space and translate
       const large = NUMBERS.large[pos];
-      const plural = hundreds > 1 && pos > 1 && !ordinal ? 'er' : '';
+      // junk to see if it's this that runs
+      const plural = hundreds > 1 && pos > 1 && !ordinal ? 'er' : 'AR';
       str =
         (pos === 1 && hundreds === 1
           ? ''
