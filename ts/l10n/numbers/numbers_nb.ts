@@ -68,16 +68,18 @@ function numberToWords(num: number, ordinal = false): string {
       // Case 2: hundreds === 1 and pos > 1, space, no translate
       // Case 3: space and translate
       const large = NUMBERS.large[pos];
+      const hund = hundredsToWords_(num % 1000);
+      const plural = hundreds > 1 && pos > 1 ? 'er' : '';
       // junk to see if it's this that runs
       // I don't think this ought to preempt if it isn't ordinal
       ordinal;  // to avoid getting a typescript compiler
-      const plural = hundreds > 1 && pos > 1 ? 'er' : '';
       str =
-        (pos === 1 && hundreds === 1
-          ? ''
-          : (pos > 1 && hundreds === 1 ? 'en' : hundredsToWords_(num % 1000)) +
-            (pos > 1 ? ' ' : '')) +
-        (pos ? large + plural + (pos > 1 ? ' ' : '') : '') +
+        hund +
+        (pos ?
+          ' ' +
+          large + (pos > 1 && plural) +
+          (str ? ' ' : '' )
+         : '') +
         str;
     }
     num = Math.floor(num / 1000);
