@@ -35,7 +35,9 @@ function hundredsToWords_(num: number): string {
     : '';
   n = n % 100;
   if (n) {
-    str += 'og';
+    if (str !== '') {
+      str += ' og';
+    }
     str += str ? NUMBERS.numSep : '';
     str +=
       NUMBERS.ones[n] ||
