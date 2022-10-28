@@ -56,7 +56,9 @@
     "special": {
       "smallOrdinals": [
         "nullte", "første", "andre", "tredje", "fjerde", "femte", "sjette",
-        "sjuande", "åttande", "niande", "tiande", "ellevte", "tolvte"
+        "sjuande", "åttande", "niande", "tiande", "ellevte", "tolvte",
+        "trettande", "fjortande", "femtande", "sekstande", "syttande",
+        "attande", "nittande"
       ],
       "endOrdinal": "ande"
     }
