@@ -103,7 +103,7 @@ function numberToWordsRo(num: number, ordinal = false): string {
  * @param plural A flag indicating if the ordinal is in plural.
  * @returns The ordinal of the number as string.
  */
-function numberToOrdinal(num: number, plural: boolean): string {
+function numberToOrdinal(num: number, plural: boolean, fraction?: boolean): string {
   // numbers are coming in via 'numberToWordsRo' and 'Ge', which
   // adds
 
@@ -113,7 +113,7 @@ function numberToOrdinal(num: number, plural: boolean): string {
   if (num === 2) {
     return plural ? 'halve' : 'halv';
   }
-  return wordOrdinal(num) + (plural ? 'delar' : 'del');
+  return wordOrdinal(num) + (fraction ?  (plural ? 'delar' : 'del') : '');
 }
 
 /**

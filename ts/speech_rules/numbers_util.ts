@@ -75,7 +75,8 @@ export function vulgarFraction(node: Element): Span[] {
       Span.node(
         LOCALE.NUMBERS.numberToOrdinal(
           conversion.denominator,
-          conversion.enumerator !== 1
+          conversion.enumerator !== 1,
+          true,
         ),
         node.childNodes[0].childNodes[1] as Element)
     ];
