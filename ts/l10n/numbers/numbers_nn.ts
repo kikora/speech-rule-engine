@@ -103,7 +103,11 @@ function numberToWordsRo(num: number, ordinal = false): string {
  * @param plural A flag indicating if the ordinal is in plural.
  * @returns The ordinal of the number as string.
  */
-function numberToOrdinal(num: number, plural: boolean, fraction?: boolean): string {
+function numberToOrdinal(
+  num: number,
+  plural: boolean,
+  fraction?: boolean
+): string {
   // numbers are coming in via 'numberToWordsRo' and 'Ge', which
   // adds
 
@@ -113,7 +117,7 @@ function numberToOrdinal(num: number, plural: boolean, fraction?: boolean): stri
   if (num === 2) {
     return plural ? 'halve' : 'halv';
   }
-  return wordOrdinal(num) + (fraction ?  (plural ? 'delar' : 'del') : '');
+  return wordOrdinal(num) + (fraction ? (plural ? 'delar' : 'del') : '');
 }
 
 /**
@@ -155,7 +159,6 @@ function wordOrdinal(num: number): string {
 
   // this seems to be completely redundant. Let's see.
 
-
   // if (ordinal.match(/^null$/)) {
   //   ordinal = 'nullte';
   // } else if (ordinal.match(/ein$/)) {
@@ -191,7 +194,7 @@ function wordOrdinal(num: number): string {
   // } else {
   //   ordinal = ordinal + 'd';
   // }
-return ordinal;
+  return ordinal;
 }
 
 /**

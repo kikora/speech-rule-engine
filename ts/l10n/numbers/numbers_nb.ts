@@ -31,7 +31,7 @@ function hundredsToWords_(num: number): string {
   let str = '';
   const hundreds = Math.floor(n / 100);
   str += NUMBERS.ones[hundreds]
-    ? (hundreds === 1 ? '' : NUMBERS.ones[hundreds] + NUMBERS.numSep) + 'hundre'
+    ? (hundreds === 1 ? '' : NUMBERS.ones[hundreds]) + 'hundre'
     : '';
   n = n % 100;
   if (n) {
@@ -72,15 +72,8 @@ function numberToWords(num: number, ordinal = false): string {
       const plural = hundreds > 1 && pos > 1 ? 'er' : '';
       // junk to see if it's this that runs
       // I don't think this ought to preempt if it isn't ordinal
-      ordinal;  // to avoid getting a typescript compiler
-      str =
-        hund +
-        (pos ?
-          ' ' +
-          large + (pos > 1 && plural) +
-          (str ? ' ' : '' )
-         : '') +
-        str;
+      ordinal; // to avoid getting a typescript compiler
+      str = hund + (pos ? ' ' + large + plural + (str ? ' ' : '') : '') + str;
     }
     num = Math.floor(num / 1000);
     pos++;
