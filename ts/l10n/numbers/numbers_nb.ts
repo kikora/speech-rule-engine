@@ -112,7 +112,7 @@ function wordOrdinal(num: number): string {
   let ordinal = numberToWords(num, true);
   if (ordinal.match(/^null$/)) {
     ordinal = 'nullte';
-  } else if (ordinal.match(/en$/)) {
+  } else if (ordinal.match(/\ben$/)) {
     ordinal = ordinal.replace(/en$/, 'første');
   } else if (ordinal.match(/to$/)) {
     ordinal = ordinal.replace(/to$/, 'andre');
